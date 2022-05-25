@@ -1,0 +1,17 @@
+body {
+    margin: 20px;
+}
+
+.grid-square {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+    row-gap: 10px;
+}
+
+.cell {
+    border-style: solid;
+    border-width: 2px;
+    width: 20px;
+    height: 20px;
+}
