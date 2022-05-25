@@ -1,0 +1,1 @@
+My next exercise in The Odin Project. I will create interpretation of Etch a Sketch toy using HTML, CSS and JS.
