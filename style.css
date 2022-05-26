@@ -4,14 +4,18 @@ body {
 
 .grid-square {
     display: grid;
-    grid-template-columns: repeat(16, 1fr);
-    grid-template-rows: repeat(16, 1fr);
-    row-gap: 10px;
+    max-width: max-content;
+    grid-template-columns: repeat(16, auto);
+    grid-template-rows: repeat(16, auto);
+
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
 }
 
 .cell {
-    border-style: solid;
-    border-width: 2px;
-    width: 20px;
-    height: 20px;
+
+    width: 30px;
+    height: 30px;
+    border-top: 2px solid black;
+    border-left: 2px solid black;
 }
