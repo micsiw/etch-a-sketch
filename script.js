@@ -1,7 +1,9 @@
 let squaresPerSide = 64;
 
 const gridSquare = document.querySelector('.grid-square');
-gridSquare.style.gridTemplateColumns = "repeat(" + squaresPerSide + ", 1fr)"
+gridSquare.style.gridTemplateColumns = "repeat(" + squaresPerSide + ", auto)";
+
+
 
 for (c = 0; c < Math.pow(squaresPerSide, 2); c++) {
     let cell = document.createElement('div');
