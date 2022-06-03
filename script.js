@@ -1,6 +1,9 @@
 const gridSquare = document.querySelector('.grid-square');
 const slider = document.querySelector('.slider');
 const gridSizeInfo = document.querySelector('.grid-size-info');
+const rainbowButton = document.querySelector('.button-rainbow');
+const shadeButton = document.querySelector('.button-shade');
+const eraseButton = document.querySelector('.button-erase');
 
 let squaresPerSide = slider.value;
 
@@ -23,13 +26,30 @@ function drawGrid(squaresPerSide) {
     const cells = document.querySelectorAll('.cell');
 
     cells.forEach((cell) => {
-        cell.addEventListener('mouseover', () => {
-        cell.style.backgroundColor = 'black'
-        });
+        cell.addEventListener('mouseover', hoverBlack)
     });
 }
 
+function hoverBlack() {
+    
+    this.style.backgroundColor = '#696969'
+
+}
+
+function hoverRainbow() {
+
+    function getColor() {
+        return "hsla(" + ~~(360 * Math.random()) + "," +
+                    "80%,"+
+                    "55%,1)"
+    }
+    
+    this.style.backgroundColor = getColor();
+
+}
+
 function resetGrid() {
+
     const cells = document.querySelectorAll('.cell');
     
     if (cells.length > 0) {
@@ -39,6 +59,20 @@ function resetGrid() {
         }
     }
 }
+
+rainbowButton.addEventListener('click', () => {
+
+    const cells = document.querySelectorAll('.cell');
+
+    cells.forEach((cell) => {
+        cell.removeEventListener('mouseover', hoverBlack)
+    });
+
+    cells.forEach((cell) => {
+        cell.addEventListener('mouseover', hoverRainbow)
+
+    });
+});
 
 drawGrid(squaresPerSide);
 
