@@ -26,13 +26,14 @@ function drawGrid(squaresPerSide) {
     const cells = document.querySelectorAll('.cell');
 
     cells.forEach((cell) => {
-        cell.addEventListener('mouseover', hoverBlack)
+        cell.addEventListener('mouseover', hoverDraw)
+        cell.style.filter = 'brightness(100%)';
     });
 }
 
-function hoverBlack() {
+function hoverDraw() {
     
-    this.style.backgroundColor = '#696969'
+    this.style.backgroundColor = '#A0A0A0'
 
 }
 
@@ -41,12 +42,32 @@ function hoverRainbow() {
     function getColor() {
         return "hsla(" + ~~(360 * Math.random()) + "," +
                     "80%,"+
-                    "55%,1)"
+                    "65%,1)"
     }
     
     this.style.backgroundColor = getColor();
 
 }
+
+function hoverShade() {
+
+    switch(this.style.filter) {
+        case 'brightness(100%)':
+            this.style.filter = 'brightness(80%)';
+            break;
+        case 'brightness(80%)':
+            this.style.filter = 'brightness(60%)';
+            break;
+        case 'brightness(60%)':
+            this.style.filter = 'brightness(40%)';
+            break;  
+        case 'brightness(40%)':
+            this.style.filter = 'brightness(30%)';
+            break;   
+    }
+   
+}
+    
 
 function resetGrid() {
 
@@ -65,11 +86,25 @@ rainbowButton.addEventListener('click', () => {
     const cells = document.querySelectorAll('.cell');
 
     cells.forEach((cell) => {
-        cell.removeEventListener('mouseover', hoverBlack)
+        cell.removeEventListener('mouseover', hoverDraw)
     });
 
     cells.forEach((cell) => {
         cell.addEventListener('mouseover', hoverRainbow)
+
+    });
+});
+
+shadeButton.addEventListener('click', () => {
+
+    const cells = document.querySelectorAll('.cell');
+
+    cells.forEach((cell) => {
+        cell.removeEventListener('mouseover', hoverDraw)
+    });
+
+    cells.forEach((cell) => {
+        cell.addEventListener('mouseover', hoverShade)
 
     });
 });
