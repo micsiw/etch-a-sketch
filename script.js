@@ -122,6 +122,10 @@ function removeListeners() {
         cell.removeEventListener('mouseover', hoverShade);
     });
 
+    cells.forEach((cell) => {
+        cell.removeEventListener('mouseover', hoverErase);
+    });
+
 }
 
 rainbowButton.addEventListener('click', () => {
@@ -131,7 +135,7 @@ rainbowButton.addEventListener('click', () => {
     removeListeners();
 
     cells.forEach((cell) => {
-        if (cell.classList.contains('rainbow')) {
+        if (cell.classList.contains('reset') || cell.classList.contains('shade') || cell.classList.contains('rainbow')) {
             cell.className = 'cell';
             cell.addEventListener('mouseover', hoverDraw);
         } else {
@@ -151,7 +155,7 @@ shadeButton.addEventListener('click', () => {
     removeListeners();
 
     cells.forEach((cell) => {
-        if (cell.classList.contains('shade')) {
+        if (cell.classList.contains('reset') || cell.classList.contains('shade') || cell.classList.contains('rainbow')) {
             cell.className = 'cell';
             cell.addEventListener('mouseover', hoverDraw);
         } else {
@@ -172,7 +176,7 @@ eraseButton.addEventListener('click', () => {
     removeListeners();
 
     cells.forEach((cell) => {
-        if (cell.classList.contains('reset')) {
+        if (cell.classList.contains('reset') || cell.classList.contains('shade') || cell.classList.contains('rainbow')) {
             cell.className = 'cell';
             cell.addEventListener('mouseover', hoverDraw);
         } else {
