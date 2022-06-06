@@ -4,6 +4,7 @@ const gridSizeInfo = document.querySelector('.grid-size-info');
 const rainbowButton = document.querySelector('.button-rainbow');
 const shadeButton = document.querySelector('.button-shade');
 const eraseButton = document.querySelector('.button-erase');
+const restartButton = document.querySelector('.button-restart');
 const allButtons = document.querySelectorAll('.button');
 
 let squaresPerSide = slider.value;
@@ -11,9 +12,7 @@ let squaresPerSide = slider.value;
 slider.oninput = function() {
 
     resetGrid();
-    squaresPerSide = slider.value;
-    drawGrid(squaresPerSide);
-
+    
 }
 
 function drawGrid(squaresPerSide) {
@@ -105,6 +104,9 @@ function resetGrid() {
         }
     }
 
+    squaresPerSide = slider.value;
+    drawGrid(squaresPerSide);
+
 }
 
 function removeListeners() {
@@ -153,7 +155,7 @@ rainbowButton.addEventListener('click', () => {
             cell.classList.remove('shade');
             cell.className += ' rainbow'; 
             /* added class rainbow to recognize if it's active, 
-            and toggle it with the same button */
+            and toggle it */
             cell.addEventListener('mouseover', hoverRainbow);
         } else if (cell.classList.contains('rainbow')) {
             cell.className = 'cell';
@@ -189,7 +191,7 @@ shadeButton.addEventListener('click', () => {
             cell.classList.remove('rainbow');
             cell.className += ' shade';
             /* added class shade to recognize if it's active, 
-            and toggle it with the same button */
+            and toggle it */
             cell.addEventListener('mouseover', hoverShade);
         } else if (cell.classList.contains('shade')) {
             cell.className = 'cell';
@@ -225,7 +227,7 @@ eraseButton.addEventListener('click', () => {
             cell.classList.remove('rainbow');
             cell.className += ' reset';
             /* added class reset to recognize if it's active, 
-                and toggle it with the same button */
+                and toggle it */
             cell.addEventListener('mouseover', hoverErase);
         } else if (cell.classList.contains('reset')) {
             cell.className = 'cell';
@@ -238,6 +240,8 @@ eraseButton.addEventListener('click', () => {
     });
 
 });
+
+restartButton.addEventListener('click', resetGrid);
 
 
 drawGrid(squaresPerSide);
