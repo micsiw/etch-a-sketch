@@ -4,6 +4,7 @@ const gridSizeInfo = document.querySelector('.grid-size-info');
 const rainbowButton = document.querySelector('.button-rainbow');
 const shadeButton = document.querySelector('.button-shade');
 const eraseButton = document.querySelector('.button-erase');
+const allButtons = document.querySelectorAll('.button');
 
 let squaresPerSide = slider.value;
 
@@ -132,10 +133,20 @@ rainbowButton.addEventListener('click', () => {
 
     const cells = document.querySelectorAll('.cell');
 
+    if (rainbowButton.classList.contains('button-clicked')) {
+        rainbowButton.classList.remove('button-clicked')
+    } else {
+        allButtons.forEach((button) => {
+            button.classList.remove('button-clicked');
+            rainbowButton.classList.add('button-clicked')
+        });
+    } 
+
     removeListeners();
 
     cells.forEach((cell) => {
-        if (cell.classList.contains('reset') || cell.classList.contains('shade') || cell.classList.contains('rainbow')) {
+
+        if (cell.classList.contains('rainbow')) {
             cell.className = 'cell';
             cell.addEventListener('mouseover', hoverDraw);
         } else {
@@ -144,6 +155,7 @@ rainbowButton.addEventListener('click', () => {
             and toggle it with the same button */
             cell.addEventListener('mouseover', hoverRainbow);
         }
+
     });
 
 });
@@ -152,9 +164,19 @@ shadeButton.addEventListener('click', () => {
 
     const cells = document.querySelectorAll('.cell');
 
+    if (shadeButton.classList.contains('button-clicked')) {
+        shadeButton.classList.remove('button-clicked')
+    } else {
+        allButtons.forEach((button) => {
+            button.classList.remove('button-clicked');
+            shadeButton.classList.add('button-clicked')
+        });
+    }
+
     removeListeners();
 
     cells.forEach((cell) => {
+
         if (cell.classList.contains('reset') || cell.classList.contains('shade') || cell.classList.contains('rainbow')) {
             cell.className = 'cell';
             cell.addEventListener('mouseover', hoverDraw);
@@ -172,6 +194,15 @@ shadeButton.addEventListener('click', () => {
 eraseButton.addEventListener('click', () => {
 
     const cells = document.querySelectorAll('.cell');
+
+    if (eraseButton.classList.contains('button-clicked')) {
+        eraseButton.classList.remove('button-clicked')
+    } else {
+        allButtons.forEach((button) => {
+            button.classList.remove('button-clicked');
+            eraseButton.classList.add('button-clicked')
+        });
+    }
 
     removeListeners();
 
