@@ -104,6 +104,10 @@ function resetGrid() {
         }
     }
 
+    allButtons.forEach((button) => {
+        button.classList.remove('button-clicked');
+    });
+
     squaresPerSide = slider.value;
     drawGrid(squaresPerSide);
 
