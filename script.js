@@ -129,6 +129,8 @@ function removeListeners() {
 
 }
 
+/* every button below manipulates with additional class to recognize actual mode and switch properly between each other */
+
 rainbowButton.addEventListener('click', () => {
 
     const cells = document.querySelectorAll('.cell');
@@ -146,13 +148,18 @@ rainbowButton.addEventListener('click', () => {
 
     cells.forEach((cell) => {
 
-        if (cell.classList.contains('rainbow')) {
+        if (cell.classList.contains('reset') || cell.classList.contains('shade')) {
+            cell.classList.remove('reset');
+            cell.classList.remove('shade');
+            cell.className += ' rainbow'; 
+            /* added class rainbow to recognize if it's active, 
+            and toggle it with the same button */
+            cell.addEventListener('mouseover', hoverRainbow);
+        } else if (cell.classList.contains('rainbow')) {
             cell.className = 'cell';
             cell.addEventListener('mouseover', hoverDraw);
         } else {
             cell.className += ' rainbow'; 
-            /* added class rainbow to recognize if it's active, 
-            and toggle it with the same button */
             cell.addEventListener('mouseover', hoverRainbow);
         }
 
@@ -177,13 +184,18 @@ shadeButton.addEventListener('click', () => {
 
     cells.forEach((cell) => {
 
-        if (cell.classList.contains('reset') || cell.classList.contains('shade') || cell.classList.contains('rainbow')) {
+        if (cell.classList.contains('reset') || cell.classList.contains('rainbow')) {
+            cell.classList.remove('reset');
+            cell.classList.remove('rainbow');
+            cell.className += ' shade';
+            /* added class shade to recognize if it's active, 
+            and toggle it with the same button */
+            cell.addEventListener('mouseover', hoverShade);
+        } else if (cell.classList.contains('shade')) {
             cell.className = 'cell';
             cell.addEventListener('mouseover', hoverDraw);
         } else {
             cell.className += ' shade';
-            /* added class shade to recognize if it's active, 
-            and toggle it with the same button */
             cell.addEventListener('mouseover', hoverShade);
         }
 
@@ -207,16 +219,24 @@ eraseButton.addEventListener('click', () => {
     removeListeners();
 
     cells.forEach((cell) => {
-        if (cell.classList.contains('reset') || cell.classList.contains('shade') || cell.classList.contains('rainbow')) {
+
+        if (cell.classList.contains('shade') || cell.classList.contains('rainbow')) {
+            cell.classList.remove('shade');
+            cell.classList.remove('rainbow');
+            cell.className += ' reset';
+            /* added class reset to recognize if it's active, 
+                and toggle it with the same button */
+            cell.addEventListener('mouseover', hoverErase);
+        } else if (cell.classList.contains('reset')) {
             cell.className = 'cell';
             cell.addEventListener('mouseover', hoverDraw);
         } else {
-        cell.className += ' reset';
-        /* added class reset to recognize if it's active, 
-            and toggle it with the same button */
-        cell.addEventListener('mouseover', hoverErase);
+            cell.className += ' reset';
+            cell.addEventListener('mouseover', hoverErase);
         }
+
     });
+
 });
 
 
