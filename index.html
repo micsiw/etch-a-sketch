@@ -6,20 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
+    <style>@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');</style>
     <title>Etch a Sketch</title>
 </head>
 <body>
     <h1>Etch a Sketch</h1>
     <div class="main">
         <div class="settings">
-            <div class="grid-size-info">32 x 32</div>
-            <input type="range" min="10" max="70" value="32" class="slider">
-            <button class="button button-rainbow">Rainbow</button>
-            <button class="button button-shade">Shade</button>
-            <button class="button button-erase">Erase</button>
-            <button class="button button-restart">Reset</button>
+            <div class="settings-spacing"></div>
+            <div class="settings-inputs">
+                <div class="slider-position">
+                    <div class="grid-slider">
+                        <div class="grid-size-info">32 x 32</div>
+                        <input type="range" min="10" max="70" value="32" class="slider">
+                    </div>
+                </div>
+                <div class="button-position">
+                    <button class="button button-rainbow">Rainbow</button>
+                    <button class="button button-shade">Shade</button>
+                    <button class="button button-erase">Erase</button>
+                    <button class="button button-restart">Reset</button>
+                </div>
+            </div>
         </div>
         <div class="grid-square"></div>
+        <div class="centering-div"></div>
     </div>
 </body>
 </html>

@@ -1,5 +1,6 @@
 body {
     margin: 20px;
+    font-family: 'Orbitron', sans-serif;
 }
 
 h1 {
@@ -9,22 +10,55 @@ h1 {
 
 .main {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
 }
 
 .settings {
     display: flex;
+    flex: 1;
+}
+
+.settings-spacing {
+    flex: 2;
+}
+
+.settings-inputs {
+    display: flex;
+    flex-direction: column;
+}
+
+.slider-position {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+.grid-size-info {
+    text-align: center;
+}
+
+.button-position {
+    display: flex;
+    flex: 2;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 40px;
 }
 
 .grid-square {
     display: grid;
-    width: 70vh;
-    height: 70vh;
+    width: 60vh;
+    height: 60vh;
     margin-top: 15px;
     background-color: black;
     border: 1px solid black;
     grid-gap: 1px;
+}
+
+.centering-div {
+    flex: 1;
 }
 
 .cell {
@@ -35,3 +69,5 @@ h1 {
     background-color: blue;
     color: white
 }
+
+
