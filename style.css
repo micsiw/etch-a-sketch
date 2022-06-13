@@ -76,9 +76,16 @@ h1 {
 }
 
 .footer {
-    text-align: center;
+    display: flex;
+    gap: 10px;
     margin-top: 90px;
     font-size: 1rem;
+    justify-content: center;
+}
+
+.footer > a {
+    display: flex;
+    align-self: center;
 }
 
 /* slider css */
@@ -207,15 +214,14 @@ button {
     border-radius: 50%;
     box-shadow: 0px 3px 9px rgb(56, 56, 56), inset 0px 2px 3px #B8B7B7;
     border: solid 1px gray;
-  }
-  
-  
+}
+
 button:active {
     box-shadow: 0px 3px 4px #e0dd01 inset, 0px 2px 3px rgb(56, 56, 56);
-  }
+}
   
 button:hover {
     text-decoration: none;
     background-color: #e0dd01;
-  }
+}
    
