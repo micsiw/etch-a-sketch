@@ -1,3 +1,5 @@
+Live preview - https://micsiw.github.io/etch-a-sketch/
+
 My next exercise in The Odin Project. I will create interpretation of Etch a Sketch toy using HTML, CSS and JS.
 
 This tool is pretty simple, just hover mouse over the grid to start drawing.
